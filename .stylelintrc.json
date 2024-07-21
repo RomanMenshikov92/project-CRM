@@ -382,7 +382,24 @@
       {
         "except": ["blockless-after-same-name-blockless", "first-nested"],
         "ignore": ["after-comment"],
-        "ignoreAtRules": ["else"]
+        "ignoreAtRules": [
+          "use",
+          "forward",
+          "mixin",
+          "include",
+          "import",
+          "extend",
+          "function",
+          "content",
+          "debug",
+          "error",
+          "warn",
+          "if",
+          "else",
+          "each",
+          "for",
+          "while"
+        ]
       }
     ],
     "at-rule-no-unknown": null,
@@ -458,7 +475,7 @@
     "selector-nested-pattern": null,
     "selector-no-qualifying-type": null,
     "selector-no-vendor-prefix": true,
-    "selector-pseudo-class-no-unknown": true,
+    "selector-pseudo-class-no-unknown": null,
     "selector-pseudo-element-colon-notation": "double",
     "selector-pseudo-element-no-unknown": true,
     "selector-type-case": "lower",

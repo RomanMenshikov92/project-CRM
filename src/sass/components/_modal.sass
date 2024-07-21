@@ -71,7 +71,7 @@
     &:hover .modal__btn-close-icon
       fill: $color-firm
 
-    & svg
+    svg
       width: 20.51px
       height: 20.51px
       fill: $color-grey-dark
@@ -96,6 +96,7 @@
       flex-direction: column
       margin-bottom: 25px
       gap: 32px
+      @include transition ((margin), 0.3s, ease)
 
       &-label
         position: relative
@@ -147,6 +148,7 @@
       display: flex
       flex-direction: column
       justify-content: center
+      @include transition((padding), .5s, ease)
 
       &::after
         content: ''
@@ -166,6 +168,7 @@
         display: flex
         flex-direction: column
         gap: 15px
+        @include transition((margin, max-height), .5s, ease)
 
         &-item
           display: flex
@@ -254,10 +257,11 @@
 
           &::placeholder
             font-weight: $fontWeight-Regular
-            @include fontSize-lineHeight(14px, normal)
             color: $color-grey-dark
             transform: scale(1)
             transition: transform 0.5s ease
+
+            @include fontSize-lineHeight(14px, normal)
             @include transition((transform), .5s, ease)
 
             @include tablet-small
@@ -392,6 +396,7 @@
         margin-right: 4px
         width: 12px
         height: 12px
+
         &--loader
           fill: transparent
           stroke: $color-firm-light

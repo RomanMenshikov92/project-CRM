@@ -1,2 +1,7 @@
 app/**/*.css
 src/scss/vendor/**/*
+*.js
+*.map
+!*.css
+!*.scss
+!*.sass
