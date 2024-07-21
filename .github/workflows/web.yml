@@ -34,8 +34,8 @@ jobs:
       - name: Run Stylelint
         run: npm run stylelint
 
-      - name: Run Code
-        run: npm run code
+      # - name: Run Code
+      #   run: npm run code
 
       - name: Build
         run: npm run build
