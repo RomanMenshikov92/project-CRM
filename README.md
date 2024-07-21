@@ -1,8 +1,8 @@
 # CRM - Система управления контактными данными клиентов
 
-<!-- ## [GutHub Pages](https://romanmenshikov92.github.io/Weblayout_Sitdownpls/) -->
+## [GutHub Pages](https://romanmenshikov92.github.io/project-CRM/)
 
-<!-- [![Pages build status](https://github.com/RomanMenshikov92/Weblayout_Sitdownpls/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/RomanMenshikov92/ra-16-react-router/actions/workflows/pages/pages-build-deployment) -->
+[![Pages build status](https://github.com/RomanMenshikov92/Weblayout_Sitdownpls/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/RomanMenshikov92/project-CRM/actions/workflows/pages/pages-build-deployment)
 
 ### [Макет из Figma](<https://www.figma.com/design/0L1LfszUWIsB0sty8iMwCZ/CRM-(Copy)?node-id=211-746&t=guVcFIU5gA06w6PV-1>)
 
