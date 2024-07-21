@@ -1,0 +1,459 @@
+.listing
+  position: relative
+  padding-top: 40px
+
+  @include tablet-small
+    overflow-x: scroll
+    scroll-behavior: smooth
+    &::-webkit-scrollbar
+      width: 10px
+    &::-webkit-scrollbar-track
+      background-color: $color-gray
+    &::-webkit-scrollbar-thumb
+      background-color: $color-grey-dark
+    @-moz-document url-prefix()
+      scrollbar-width: thin
+      scrollbar-color: $color-grey-dark $color-gray-light
+      scrollbar-gutter: auto
+
+  &__title
+    margin-bottom: 22px
+    @include tablet-small
+      width: 100%
+      margin-left: 5px
+      margin-right: 5px
+
+  &__table
+    box-sizing: border-box
+    @include tablet-small
+      margin-left: 5px
+      margin-right: 5px
+      min-width: $containerMinWidth
+      overflow-x: scroll
+      scroll-behavior: smooth
+
+  &__thead
+    display: table
+    width: 100%
+    table-layout: fixed
+    &-tr
+      display: flex
+      justify-content: space-between
+      align-items: center
+      height: 30px
+      width: 100%
+      @include laptop
+        align-items: flex-end
+    &-th
+      padding-bottom: 8px
+      border: none
+      text-align: left
+      cursor: none
+      pointer-events: none
+      width: 100%
+      &:hover .listing__thead-th-text
+        color: $color-black
+      &:hover .listing__thead-th-icon,
+      &:hover .listing__thead-th-text-alphabet
+        opacity: 1
+      &:first-child
+        padding-left: 20px
+        max-width: 145px
+        @include laptop
+          max-width: 125px
+      &:nth-child(2)
+        max-width: 100%
+        padding-left: 10px
+        @include laptop
+          max-width: 160px
+          padding-left: 5px
+        @include tablet-big
+          max-width: 150px
+      &:nth-child(3)
+        max-width: 175px
+        @include laptop
+          max-width: 130px
+          padding-left: 0px
+        @include tablet-big
+          max-width: 100px
+          padding-left: 18px
+      &:nth-child(4)
+        max-width: 175px
+        @include laptop
+          max-width: 130px
+          padding-left: 10px
+        @include tablet-big
+          max-width: 100px
+          padding-left: 12px
+      &:nth-child(5)
+        max-width: 150px
+        padding-right: 30px
+        padding-left: 0px
+        @include laptop
+          max-width: 140px
+          padding-right: 20px
+          padding-left: 5px
+        @include tablet-big
+          max-width: 135px
+          padding-left: 8px
+      &:nth-child(6)
+        padding-left: 10px
+        padding-right: 10px
+        max-width: 215px
+        @include laptop
+          padding-left: 0
+          max-width: 205px
+        @include tablet-big
+          max-width: 105px
+      &:nth-last-child(-n + 2)
+        cursor: none
+        pointer-events: none
+      &-text
+        font-weight: $fontWeight-Regular
+        @include fontSize-lineHeight(12px, normal)
+        color: $color-grey-dark
+        @include transition((color), .5s, ease)
+        opacity: 0.7
+        cursor: pointer
+        pointer-events: auto
+        &:nth-last-child(-n + 2)
+          cursor: none
+          pointer-events: none
+        &-alphabet
+          font-weight: $fontWeight-SemiBold
+          @include fontSize-lineHeight(10px, normal)
+          color: $color-firm
+          opacity: 0.7
+          cursor: pointer
+          pointer-events: auto
+      &-icon
+        width: 8px
+        height: 8px
+        fill: $color-firm
+        opacity: 0.7
+        cursor: pointer
+        pointer-events: auto
+        @include transition((opacity, transform), .5s, ease)
+        &--rotate
+          transform: rotate(180deg)
+
+  &__tbody
+    position: relative
+    display: block
+    max-height: 300px
+    height: 300px
+    width: 100%
+    overflow-y: auto
+    background-color: $color-white
+    scroll-behavior: smooth
+    &::-webkit-scrollbar
+      width: 10px
+    &::-webkit-scrollbar-track
+      background-color: $color-gray
+    &::-webkit-scrollbar-thumb
+      background-color: $color-grey-dark
+    @-moz-document url-prefix()
+      scrollbar-width: thin
+      scrollbar-color: $color-grey-dark $color-gray-light
+      scrollbar-gutter: auto
+    &-loader
+      width: 100%
+      height: 100%
+      display: flex
+      align-items: center
+      justify-content: center
+      @include tablet-small
+        justify-content: start
+        margin-left: 25%
+      &-icon
+        width: 100px
+        height: 100px
+        fill: transparent
+        stroke: $color-firm
+        stroke-width: 8
+        stroke-miterlimit: 10
+        stroke-linecap: round
+        @animation(rotateInfinity, 2s, linear)
+    &-tr
+      display: flex
+      justify-content: space-between
+      align-items: center
+      // table-layout: auto
+      position: relative
+      width: 100%
+      height: 60px
+      &::before
+        content: ""
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        border-bottom: 1px solid $color-gray-light
+        opacity: 0.5
+      &--visible-first
+        & .listing__tbody-td-contact-tooltip
+          top: 17px
+          z-index: 9999999
+        & .listing__tbody-td-contact-tooltip-icon
+          transform: rotate(180deg)
+        & .listing__tbody-td-contact-tooltip-text
+          top: 12px
+        &:not .listing__tbody-td-contact-tooltip-text
+          top: 6px
+    &-td
+      border: none
+      @include fontSize-lineHeight(14px, normal)
+      color: $color-black
+      text-align: left
+      padding-left: 10px
+      width: 100%
+      &:first-child
+        padding-left: 20px
+        max-width: 145px
+        @include laptop
+          max-width: 125px
+      &:nth-child(2)
+        max-width: 100%
+        @include laptop
+          max-width: 160px
+          padding-left: 5px
+        @include tablet-big
+          max-width: 150px
+      &:nth-child(3)
+        max-width: 175px
+        @include laptop
+          max-width: 130px
+          padding-left: 0px
+        @include tablet-big
+          display: flex
+          flex-direction: column
+          max-width: 100px
+          padding-left: 18px
+      &:nth-child(4)
+        max-width: 175px
+        @include laptop
+          max-width: 130px
+          padding-left: 10px
+        @include tablet-big
+          display: flex
+          flex-direction: column
+          max-width: 100px
+          padding-left: 18px
+      &:nth-child(5)
+        display: grid
+        grid-template-columns: repeat(5, 1fr)
+        column-gap: 7px
+        row-gap: 7px
+        max-width: 150px
+        padding-right: 30px
+        @include laptop
+          column-gap: 2px
+          max-width: 140px
+          padding-right: 20px
+        @include tablet-big
+          max-width: 135px
+          padding-left: 17px
+          padding-right: 8px
+      &:nth-child(6)
+        padding-left: 15px
+        padding-right: 10px
+        max-width: 215px
+        display: flex
+        justify-content: space-between
+        height: 100%
+        @include laptop
+          padding-left: 2px
+          max-width: 200px
+        @include tablet-big
+          flex-direction: column
+          align-items: flex-start
+          max-width: 105px
+          padding: 8px 10px
+      &--id,
+      &--createdAt span:nth-child(2),
+      &--updatedAt span:nth-child(2)
+        color: $color-grey-dark
+      &--fullName
+        overflow: hidden
+        text-overflow: ellipsis
+        max-width: 240px
+      &--createdAt span:nth-child(2),
+      &--updatedAt span:nth-child(2)
+        margin-left: 7px
+        @include tablet-big
+          margin-left: 0px
+      &--highlighting
+        font-weight: $fontWeight-SemiBold
+        color: $color-black-dark
+      &-contact
+        position: relative
+        display: inline-block
+        font-size: 0
+        cursor: pointer
+        width: 16px
+        &:hover .listing__tbody-td-contact-icon
+          opacity: 1
+        &:hover .listing__tbody-td-contact-tooltip
+          z-index: 9999999
+          opacity: 1
+          visibility: visible
+        &-tooltip
+          position: absolute
+          z-index: 99999999999999
+          top: -38px
+          left: -85px
+          height: 37px
+          width: 185px
+          display: inline-flex
+          justify-content: center
+          align-items: center
+          visibility: hidden
+          opacity: 0
+          @include transition((opacity, visibility), .3s, ease-out)
+          &-icon
+            min-width: 133px
+            flex-grow: 1
+            width: 100%
+            height: 37px
+            fill: $color-black
+          &-text
+            position: absolute
+            top: 5px
+            left: 0
+            z-index: 11
+            width: 100%
+            display: inline-flex
+            justify-content: center
+            align-items: center
+            font-weight: $fontWeight-SemiBold
+            @include fontSize-lineHeight(12px, normal)
+            color: $color-white
+            text-decoration: underline
+            text-decoration-color: transparent
+            @include transition((text-decoration, color), .3s, ease-out)
+            &:hover
+              text-decoration-color: $color-firm
+              color: $color-firm
+        &-icon
+          width: 16px
+          height: 16px
+          fill: $color-firm
+          opacity: 0.7
+          @include transition((opacity), .5s, ease)
+          &--phone1
+            position: absolute
+            z-index: 11
+            top: 4px
+            left: 4px
+            width: 8px
+            height: 8px
+            opacity: 1
+            fill: $color-white
+          &--phone2
+            fill: $color-firm
+        &-btn
+          position: relative
+          // margin-bottom: 7px
+          font-size: 0
+          width: 16px
+          height: 16px
+          &-icon
+            width: 16px
+            height: 16px
+            fill: transparent
+            stroke: $color-firm
+          &-text
+            position: absolute
+            top: 2px
+            left: 3px
+            font-weight: $fontWeight-SemiBold
+            @include fontSize-lineHeight(8px, normal)
+            color: $color-black
+
+      &-btn-edit
+        // margin-right: 30px
+        &:hover .listing__tbody-td-btn-edit-text
+          color: $color-firm
+        &-text
+          @include fontSize-lineHeight(14px, normal)
+          @include transition((color), .5s, ease)
+        &-icon
+          width: 12px
+          height: 12px
+          fill: $color-firm
+          &--loader
+            fill: transparent
+            stroke: $color-firm
+            stroke-width: 8
+            stroke-miterlimit: 10
+            stroke-linecap: round
+            @animation(rotateInfinity, 2s, linear)
+
+      &-btn-delete
+        &:hover .listing__tbody-td-btn-delete-text
+          color: $color-red
+        &-text
+          @include fontSize-lineHeight(14px, normal)
+          @include transition((color), .5s, ease)
+        &-icon
+          width: 12px
+          height: 12px
+          fill: $color-red
+          &--loader
+            fill: transparent
+            stroke: $color-firm
+            stroke-width: 8
+            stroke-miterlimit: 10
+            stroke-linecap: round
+            @animation(rotateInfinity, 2s, linear)
+    &-empty
+      position: absolute
+      z-index: 11111
+      left: 0
+      top: 0
+      right: 0
+      bottom: 0
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 100%
+      height: 100%
+      background-color: $color-white
+      &-title
+        font-weight: $fontWeight-SemiBold
+        @include fontSize-lineHeight(16px, normal)
+        text-align: center
+        color: $color-black
+        &-first,
+        &-second
+          display: block
+        &-third
+          color: $color-firm
+
+  &__btn
+    display: flex
+    align-items: center
+    flex-direction: row-reverse
+    gap: 10px
+    padding: 11px 26px
+    margin: 40px auto 5px
+    border: 1px solid $color-firm
+    @include transition(background-color, .3s, ease-out)
+    &:hover
+      background-color: $color-firm-light
+    &:hover .listing__btn-text
+      color: $color-white
+    &:hover .listing__btn-icon-svg
+      fill: $color-white
+    &:active
+      background-color: $color-firm-dark1
+    &-text
+      font-weight: $fontWeight-SemiBold
+      @include fontSize-lineHeight(14px, normal)
+      text-align: center
+      color: $color-firm
+      @include transition(color, .3s, ease-out)
+    &-icon-svg
+      width: 23px
+      height: 16px
+      fill: $color-firm

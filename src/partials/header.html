@@ -1,0 +1,36 @@
+<header class="header">
+  <div class="header__top">
+    <div class="header__wrapper">
+      <a href="index.html" class="header__logo" aria-label="Логотип CRM">
+        <picture class="header__logo-picture">
+          <source media="(max-width: 480px)" srcset="img/Logo_320.svg" />
+          <source media="(min-width: 481px)" srcset="img/Logo.svg" />
+          <img class="header__logo-img" src="img/Logo.svg" alt="Логотип CRM" />
+        </picture>
+      </a>
+    </div>
+    <form
+      action="/"
+      method="POST"
+      class="header__form"
+      aria-label="Форма поиска"
+    >
+      <label class="header__label" for="input-search">
+        <input
+          class="header__input input-reset"
+          id="input-search"
+          type="text"
+          aria-label="Введите запрос"
+          placeholder="Введите запрос"
+          onmouseout="this.blur();"
+          autocomplete="off"
+        />
+      </label>
+      <button id="clear-search" type="button" class="header__btn btn-reset">
+        Очистить
+      </button>
+    </form>
+  </div>
+
+  <div id="result-search" class="header__result-search"></div>
+</header>

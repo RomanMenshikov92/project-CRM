@@ -1,0 +1,35 @@
+/* stylelint-disable */
+
+/* +infinity - 1201 */
+// (layout 1366 - container 1186 - offset 90)
+@mixin desktop
+  @media (max-width: ($desktop))
+    @content
+
+/* от 1200 до 993 */
+// (layout 1024 - container 984 - offset 20)
+@mixin laptop
+  @media (max-width: ($laptop))
+    @content
+
+/* от 992 до 752 */
+// (layout 768 - container 728 - offset 20)
+@mixin tablet-big
+  @media (max-width: ($tablet-big))
+    @content
+
+/* от 751 до 601 */
+@mixin tablet-small
+  @media (max-width: ($tablet-small))
+    @content
+
+/* от 600 до 481 */
+@mixin tablet-mini
+  @media (max-width: ($tablet-mini))
+    @content
+
+/* от 480 до 320(-infinity) */
+// (layout 320 - container 300 - offset 10)
+@mixin mobile
+  @media (max-width: ($mobile))
+    @content

@@ -1,0 +1,115 @@
+.header
+  position: relative
+  left: 0
+  right: 0
+  top: 0
+  z-index: 11
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  padding: 20px
+  width: 100%
+  box-shadow: 0 3px 6px 0 $color-black-opacity-box, 0 9px 27px 0 $color-black-opacity-box
+  background-color: $color-white
+
+  &__top
+    display: flex
+    width: 100%
+    gap: 53px
+
+    @include tablet-small
+      flex-direction: column
+      align-items: center
+      gap: 15px
+
+  &__wrapper
+    font-size: 0
+
+  &__form
+    position: relative
+    height: 100%
+
+    @include tablet-small
+      width: 100%
+
+    @include mobile
+      display: none
+
+  &__btn
+    position: absolute
+    right: 10px
+    top: 45%
+    display: none
+    font-weight: $fontWeight-Regular
+    color: $color-grey-dark
+    transform: translateY(-50%)
+    @include fontSize-lineHeight(12px, normal)
+    @include transition((color), 0.3s, ease)
+
+    &:hover
+      color: $color-firm
+
+    &:active
+      color: $color-firm-dark
+
+  &__result-search
+    position: relative
+    margin: 0 auto
+    padding: 0
+    width: 50%
+    text-align: center
+    @include transition((padding), 0.3s, ease)
+
+    @include mobile
+      display: none
+
+    &-title
+      margin-bottom: 10px
+      @include fontSize-lineHeight(16px, normal)
+
+    &-loader
+      display: flex
+      align-items: center
+      justify-content: center
+      margin-top: 15px
+      width: 100%
+      height: 100%
+
+      &-icon
+        width: 50px
+        height: 50px
+        fill: transparent
+        stroke: $color-firm
+        stroke-linecap: round
+        stroke-miterlimit: 10
+        stroke-width: 8
+
+        &-title
+          margin-bottom: 10px
+          text-align: center
+
+    &-not-found
+      margin: 0
+      padding: 10px
+      text-align: center
+
+    &-item
+      display: flex
+      align-items: flex-end
+      border-bottom: 1px dashed $color-gray-light
+
+      &-id
+        padding-right: 10px
+        color: $color-gray-light
+
+  &__input
+    margin-top: 1px
+    border: 1px solid $color-black-opacity
+    padding: 14px 16px
+    width: 581px
+    max-width: 100%
+
+    &::placeholder
+      @include fontSize-lineHeight(14px, normal)
+      font-weight: $fontWeight-Regular
+      color: $color-grey-dark

@@ -1,0 +1,9 @@
+import "./functions/openModal.js";
+import "./functions/handleAddContact.js";
+import "./functions/handleSaveForm.js";
+import "./functions/handleEditForm.js";
+import "./functions/handleDeleteConfirmForm.js";
+import "./functions/renderClientsTable.js";
+import "./functions/loadingIndicator.js";
+import "./functions/handleHeaderSorting.js";
+import "./functions/handleSearch.js";

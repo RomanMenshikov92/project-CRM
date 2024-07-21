@@ -1,0 +1,128 @@
+<div id="modalWindow" class="modal" aria-hidden="true">
+  <div class="modal__overlay"></div>
+  <div class="modal__content">
+    <button class="modal__btn-close btn-reset">
+      <svg class="modal__btn-close-icon" aria-hidden="true">
+        <use xlink:href="img/sprite.svg#Close_modal"></use>
+      </svg>
+    </button>
+    <h2 class="modal__title title">Новый клиент</h2>
+    <form
+      action="/"
+      method="POST"
+      class="modal__form"
+      id="clientForm"
+      aria-label="Форма добавления модального окна"
+    >
+      <div class="modal__form-wrapper">
+        <label class="modal__form-wrapper-label" for="surname">
+          <input
+            class="modal__form-wrapper-input input-reset"
+            type="text"
+            id="surname"
+            name="surname"
+            aria-label="Введите фамилию"
+            placeholder=" "
+            autocomplete="off"
+          />
+          <span for="surname" class="modal__form-wrapper-span"
+            >Фамилия<strong class="modal__form-wrapper-span-strong"
+              >*</strong
+            ></span
+          >
+        </label>
+        <label class="modal__form-wrapper-label" for="firstname">
+          <input
+            class="modal__form-wrapper-input input-reset"
+            type="text"
+            id="firstname"
+            name="firstname"
+            aria-label="Введите имя"
+            placeholder=" "
+            autocomplete="off"
+          />
+          <span for="firstname" class="modal__form-wrapper-span"
+            >Имя<strong class="modal__form-wrapper-span-strong">*</strong></span
+          >
+        </label>
+        <label class="modal__form-wrapper-label" for="lastname">
+          <input
+            class="modal__form-wrapper-input input-reset"
+            type="text"
+            id="lastname"
+            name="lastname"
+            aria-label="Введите отчество"
+            placeholder=" "
+            autocomplete="off"
+          />
+          <span for="lastname" class="modal__form-wrapper-span">Отчество</span>
+        </label>
+      </div>
+      <div class="modal__form-add">
+        <div id="contact-wrapper" class="modal__form-add-wrapper"></div>
+        <button
+          id="addContactBtn"
+          type="button"
+          class="modal__form-add-btn btn-reset"
+        >
+          <svg class="modal__form-add-btn-icon" aria-hidden="true">
+            <use xlink:href="img/sprite.svg#Create_contact"></use>
+          </svg>
+          <svg class="modal__form-add-btn-icon" aria-hidden="true">
+            <use xlink:href="img/sprite.svg#Create_contact_hover"></use>
+          </svg>
+          Добавить контакт
+        </button>
+      </div>
+      <div class="modal__form-wrapper-btn">
+        <button
+          type="button"
+          id="saveForm"
+          class="modal__form-btn-save btn-reset"
+        >
+          Сохранить
+        </button>
+        <button type="reset" class="modal__form-btn-cancel btn-reset">
+          Отмена
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="modalToDelete" class="modal modal--delete" aria-hidden="true">
+  <div class="modal__overlay"></div>
+  <div class="modal__content modal__content--delete">
+    <button class="modal__btn-close modal__btn-close--delete btn-reset">
+      <svg class="modal__btn-close-icon" aria-hidden="true">
+        <use xlink:href="img/sprite.svg#Close_modal"></use>
+      </svg>
+    </button>
+    <h2 class="modal__title modal__title--delete title">Удалить клиента</h2>
+    <p class="modal__text">Вы действительно хотите удалить данного клиента?</p>
+    <form
+      action="/"
+      method="POST"
+      class="modal__form"
+      id="clientForm"
+      aria-label="Форма удаления клиента с подтверждением"
+    >
+      <div class="modal__form-wrapper-btn modal__form-wrapper-btn--delete">
+        <button
+          id="confirmDeleteBtn"
+          type="button"
+          class="modal__form-btn-save modal__form-btn-save--delete btn-reset"
+        >
+          Удалить
+        </button>
+        <button
+          type="reset"
+          id="confirmCancelBtn"
+          class="modal__form-btn-cancel modal__form-btn-cancel--delete btn-reset"
+        >
+          Отмена
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

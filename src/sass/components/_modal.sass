@@ -1,0 +1,446 @@
+.modal
+  position: fixed
+  inset: 0
+  z-index: 11111
+  display: flex
+  align-items: center
+  justify-content: center
+  overflow-y: auto
+  width: 100%
+  height: 100%
+  background-color: $color-black-opacity
+  opacity: 0
+  visibility: hidden
+  @include transition((opacity,visibility), .5s, ease)
+
+  &--open
+    overflow-x: hidden
+    opacity: 1
+    visibility: visible
+
+  &__overlay
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background-color: transparent
+
+  &__content
+    position: relative
+    margin: auto
+    padding: 24px 30px
+    width: 450px
+    min-height: 396px
+    background-color: $color-white
+
+    @include tablet-small
+      width: 300px
+      padding: 24px 15px
+
+    &--delete
+      min-height: 215px
+      text-align: center
+
+  &__title
+    margin-bottom: 32px
+    font-weight: $fontWeight-Bold
+    color: $color-black
+    @include fontSize-lineHeight(18px, normal)
+
+    &--delete
+      margin-bottom: 11px
+
+    &-span-id
+      margin-left: 9px
+      font-weight: $fontWeight-Regular
+      color: $color-grey-dark
+      @include fontSize-lineHeight(12px, normal)
+
+  &__text
+    margin: 0 auto 25px
+    width: 275px
+    color: $color-black
+    @include fontSize-lineHeight(14px, normal)
+
+  &__btn-close
+    position: absolute
+    right: 15px
+    top: 15px
+
+    &:hover .modal__btn-close-icon
+      fill: $color-firm
+
+    & svg
+      width: 20.51px
+      height: 20.51px
+      fill: $color-grey-dark
+
+  &__form
+    display: flex
+    flex-direction: column
+
+    &-error
+      position: relative
+      display: flex
+      flex-direction: column
+      margin-top: 25px
+      border: 1px solid $color-red
+      border-radius: 10px
+      padding: 10px
+      color: $color-red
+      gap: 5px
+
+    &-wrapper
+      display: flex
+      flex-direction: column
+      margin-bottom: 25px
+      gap: 32px
+
+      &-label
+        position: relative
+        display: block
+
+      &-input
+        position: relative
+        border-bottom: 1px solid $color-gray-light
+        padding-bottom: 4px
+        width: 100%
+        font-weight: $fontWeight-SemiBold
+        @include fontSize-lineHeight(14px, normal)
+        @include transition((font-size, transform), .5s, ease)
+
+        &:disabled
+          filter: blur(1px)
+          pointer-events: none
+
+        &::placeholder
+          font-weight: $fontWeight-Regular
+          color: $color-grey-dark
+
+        &:focus + .modal__form-wrapper-span,
+        &:not(:placeholder-shown) + .modal__form-wrapper-span
+          font-size: 10px
+          transform: translateY(-15px)
+
+      &-span
+        position: absolute
+        left: 0
+        top: 0
+        width: 100%
+        font-weight: $fontWeight-Regular
+        color: $color-grey-dark
+        transform: translateY(0)
+        cursor: text
+        pointer-events: none
+        user-select: none
+        @include fontSize-lineHeight(14px, normal)
+        @include transition((font-size, transform), .5s, ease)
+
+        &-strong
+          font-weight: $fontWeight-SemiBold
+          color: $color-firm
+
+    &-add
+      position: relative
+      z-index: 1
+      display: flex
+      flex-direction: column
+      justify-content: center
+
+      &::after
+        content: ''
+        position: absolute
+        left: 0
+        top: 0
+        z-index: -1
+        margin-left: -30px
+        width: 450px
+        height: 100%
+        background-color: $color-gray-light
+        opacity: 0.3
+
+      &-wrapper
+        position: relative
+        z-index: 11
+        display: flex
+        flex-direction: column
+        gap: 15px
+
+        &-item
+          display: flex
+
+          &--disabled
+            filter: blur(1px)
+            pointer-events: none
+
+        &-select
+          position: relative
+          flex-basis: 123px
+          border: 1px solid $color-gray-light
+
+          @include tablet-small
+            flex-basis: 110px
+
+          &-old
+            position: relative
+            display: none
+            visibility: hidden
+
+          &-custom
+            position: relative
+            padding: 10px 12px
+            color: $color-black
+            background-color: $color-gray
+            cursor: pointer
+            @include fontSize-lineHeight(12px, normal)
+
+            @include tablet-small
+              width: 110px
+
+          &-options
+            position: absolute
+            left: -1px
+            top: 100%
+            z-index: 1111
+            display: block
+            overflow: hidden
+            width: 102%
+            max-height: 0
+            color: $color-black
+            background-color: $color-gray1
+            @include fontSize-lineHeight(12px, normal)
+            @include transition((max-height), .5s, ease)
+
+            &--show
+              border: 1px solid $color-gray-light
+              max-height: 230px
+
+            &-item
+              padding: 10px 12px
+              cursor: pointer
+              @include transition((background-color), .5s, ease)
+
+              &:hover
+                background-color: $color-black-opacity-select
+
+        &-icon-arrow
+          position: absolute
+          right: 7px
+          top: 14px
+          z-index: 5
+          width: 12px
+          height: 12px
+          fill: $color-firm
+          cursor: pointer
+          @include transition((transform), 0.3s, ease)
+
+          &--rotate
+            transform: rotate(180deg)
+
+        &-input
+          flex-grow: 1
+          border-top: 1px solid $color-gray-light
+          border-bottom: 1px solid $color-gray-light
+          padding: 8px 12px
+          @include fontSize-lineHeight(14px, normal)
+
+          @include tablet-small
+            width: 100%
+
+          &:disabled
+            filter: blur(1px)
+            pointer-events: none
+
+          &::placeholder
+            font-weight: $fontWeight-Regular
+            @include fontSize-lineHeight(14px, normal)
+            color: $color-grey-dark
+            transform: scale(1)
+            transition: transform 0.5s ease
+            @include transition((transform), .5s, ease)
+
+            @include tablet-small
+              @include fontSize-lineHeight(12px, normal)
+
+          &:hover::placeholder
+            transform: scale(1.1) translateX(20%)
+
+        &-btn-closing
+          position: relative
+          border: 1px solid $color-gray-light
+          width: 27px
+          background-color: $color-gray
+          @include transition ((border-color), 0.3s, ease)
+
+          @include tablet-small
+            min-width: 27px
+
+          &:hover
+            border-color: $color-red
+
+          &:hover .modal__form-add-wrapper-btn-closing-icon
+            fill: $color-red
+
+          &:hover .modal__form-add-wrapper-btn-closing-tooltip
+            opacity: 1
+            visibility: visible
+
+          &-icon
+            position: absolute
+            right: 7px
+            top: 13px
+            z-index: 5
+            width: 12px
+            height: 12px
+            fill: $color-grey-dark
+            pointer-events: none
+
+          &-tooltip
+            position: absolute
+            left: -55px
+            top: -27px
+            color: $color-white
+            opacity: 0
+            visibility: hidden
+            @include transition((opacity, visibility), .5s, ease)
+
+            @include mobile
+              left: -170px
+
+            &-icon
+              width: 133px
+              height: 37px
+              fill: $color-black
+
+            &-text
+              position: absolute
+              left: 17px
+              top: 6px
+              font-weight: $fontWeight-SemiBold
+              @include fontSize-lineHeight(12px, normal)
+
+      &-btn
+        position: relative
+        display: inline-flex
+        align-items: center
+        align-self: center
+        padding-top: 8px
+        padding-bottom: 8px
+        font-weight: $fontWeight-SemiBold
+        color: $color-black
+        @include fontSize-lineHeight(14px, normal)
+        @include transition((color), .5s, ease)
+
+        &:disabled
+          filter: blur(1px)
+          pointer-events: none
+
+        &:hover
+          color: $color-firm
+
+        &-icon
+          position: absolute
+          left: -16px
+          top: 11px
+          margin-right: 5.33px
+          width: 13.33px
+          height: 13.33px
+          fill: $color-firm
+
+          &:last-child
+            opacity: 0
+
+    &-wrapper-btn
+      display: flex
+      flex-direction: column
+      align-self: center
+      margin-top: 25px
+      gap: 5px
+
+      &--delete
+        margin: 0
+
+    &-btn-save,
+    &-btn-save-edit
+      padding: 12px 35px
+      font-weight: $fontWeight-SemiBold
+      text-align: center
+      color: $color-white
+      background-color: $color-firm
+      @include fontSize-lineHeight(14px, normal)
+      @include transition((background-color), .5s, ease)
+
+      &:hover
+        background-color: $color-firm-light
+
+      &:active
+        background-color: $color-firm-dark1
+
+    &-btn-save
+      &:disabled
+        filter: blur(1px)
+        pointer-events: none
+
+      &:hover svg
+        stroke: $color-firm
+
+      &:active svg
+        stroke: $color-firm
+
+      &-icon
+        margin-right: 4px
+        width: 12px
+        height: 12px
+        &--loader
+          fill: transparent
+          stroke: $color-firm-light
+          stroke-linecap: round
+          stroke-miterlimit: 10
+          stroke-width: 8
+
+        &--delete
+          &-loader
+            fill: transparent
+            stroke: $color-firm-light
+            stroke-linecap: round
+            stroke-miterlimit: 10
+            stroke-width: 8
+
+    &-btn-save-edit
+      &:disabled
+        filter: blur(1px)
+        pointer-events: none
+
+      &:hover svg
+        stroke: $color-firm
+
+      &:active svg
+        stroke: $color-firm
+
+      &-icon
+        margin-right: 4px
+        width: 12px
+        height: 12px
+
+        &--loader
+          fill: transparent
+          stroke: $color-firm-light
+          stroke-linecap: round
+          stroke-miterlimit: 10
+          stroke-width: 8
+
+    &-btn-cancel,
+    &-btn-delete
+      font-weight: $fontWeight-Regular
+      text-decoration: underline
+      color: $color-black
+      @include fontSize-lineHeight(12px, normal)
+      @include transition((color), .5s, ease)
+
+      &:hover
+        color: $color-firm
+
+      &:disabled
+        filter: blur(1px)
+        pointer-events: none
