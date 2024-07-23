@@ -6,13 +6,13 @@
 
 ### [Макет из Figma](<https://www.figma.com/design/0L1LfszUWIsB0sty8iMwCZ/CRM-(Copy)?node-id=211-746&t=guVcFIU5gA06w6PV-1>)
 
-## Курс: Базовый JS + Верстка
+### Курс: Базовый JS + Верстка
 
-## Использованные технологии: HTML (метод БЭМ) / CSS (фреймворк Sass) / JavaScript
+### Использованные технологии: HTML (метод БЭМ) / CSS (фреймворк Sass) / JavaScript
 
-## Использованные инструменты: JSDoc / Gulp / DevTools / VS Сode / Stylelint / Git / Figma
+### Использованные инструменты: JSDoc / Gulp / DevTools / VS Сode / Stylelint / Git / Figma
 
-## Сборка: Gulp , version 5
+### Сборка: Gulp , version 5
 
 Проект общий собран на две части:
 
@@ -71,5 +71,3 @@
 - Индикатор загрузки при сохранении или редактировании формы
 - Заблокированные поля при сохранении или редактировании формы
 - Поиск с автодополнением
-
-
